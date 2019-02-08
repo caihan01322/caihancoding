@@ -26,6 +26,7 @@ tr>td+td{
 #clearYear,#clearMonth,#clearDate{
     width: 30px;
 }
+
 #calendar{
     display:flex;
     justify-content:center;
@@ -40,11 +41,7 @@ tr>td+td{
     border-color: #99CCFF;
     background-color: snow;
 }
-#content{
-    border-bottom-style: solid;
-    border-bottom-color: #99CCFF;
-    padding-bottom: 5px;
-}
+
 #divTable{
     border-bottom-style: solid;
     border-bottom-color: #99CCFF;
@@ -57,6 +54,11 @@ tr>td+td{
 }
 #add{
     padding-top: 15px;
+}
+#content{
+    border-bottom-style: solid;
+    border-bottom-color: #99CCFF;
+    padding-bottom: 5px;
 }
 #clear{
     padding-bottom: 15px;
