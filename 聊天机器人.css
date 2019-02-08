@@ -1,0 +1,48 @@
+#interface{
+    width: 455px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: snow;
+    border-style: solid;
+    border-color: blue;
+}
+#title{
+    text-align: center;
+    font-size:xx-large;
+    background-color: #66CCFF;
+    border-bottom-style: solid;
+    border-bottom-color: blue;
+}
+#list{
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    width:455px;
+    height:500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-bottom-style: solid;
+    border-bottom-color: blue;
+}
+#I{
+    width: 180px;
+    background-size: 100% 100%;
+    padding: 10px 10px 10px 10px;
+    border-radius:8px;
+    background-color: #CCCCFF;
+    align-self: flex-end;
+}
+#Robot{
+    width: 180px;
+    background-size: 100% 100%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 8px;
+    background-color: #99CCFF;
+}
+.talkI,.talkRobot{
+    color:#333;
+}
+#send{
+    display: flex;
+    justify-content: space-between;
+}

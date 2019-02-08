@@ -1,0 +1,63 @@
+td,div{
+    text-align: center;
+}
+td:hover{
+    background-color: gray;
+}
+
+/*定义双休日字体色*/
+tr>td, tr>td+td+td+td+td+td+td{
+    color:#B3222B;
+}
+/*定义工作日字体色*/
+tr>td+td{
+    color:#333333;
+}
+
+#time{
+    font-size: large;
+}
+#year,#month{
+    width: 30px;
+}
+#memoYear,#memoMonth,#memoDate{
+    width: 30px;
+}
+#clearYear,#clearMonth,#clearDate{
+    width: 30px;
+}
+#calendar{
+    display:flex;
+    justify-content:center;
+}
+#calendarTable{
+    border-style: solid;
+    border-color: #99CCFF;
+    background-color: snow;
+}
+#memorandum{
+    border-style: solid;
+    border-color: #99CCFF;
+    background-color: snow;
+}
+#content{
+    border-bottom-style: solid;
+    border-bottom-color: #99CCFF;
+    padding-bottom: 5px;
+}
+#divTable{
+    border-bottom-style: solid;
+    border-bottom-color: #99CCFF;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+#jump{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#add{
+    padding-top: 15px;
+}
+#clear{
+    padding-bottom: 15px;
+}
