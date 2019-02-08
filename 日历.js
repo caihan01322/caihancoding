@@ -103,7 +103,7 @@ function createTable(){
             var tdDay = (new Date(year,month,tdDate)).getDay();
             var tdDateStr = (new Date(year,month,tdDate)).toISOString();
             var memo = localStorage.getItem(tdDateStr);
-            if(tdDate!=0)
+            if(tdDate!=0&&tdDate!="*")
               alert("日期：" + year + "年" + (month+1) + "月" + tdDate + "日 "
               + "星期：" + weekArray[tdDay] + "\n备忘录：" + memo);
         });
