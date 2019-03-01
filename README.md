@@ -34,7 +34,7 @@ var monthDays = [31, leapYear(currentYear), 31, 30, 31, 30, 31, 31, 30, 31, 30, 
 
 var rows =  Math.ceil((monthDays[currentMonth] + firstDay) / 7);   //行数算法
 
-//当前月天数[+第一天星期数(0-7:日-六)=填满第一行],取整后为日期行数
+//当前月天数[+第一天星期数(0-7:日-六)=填满第一行],/7再取整后为日期行数
 
 //Math.ceil()返回值是大于等于 x，并且与它最接近的整数。
 
