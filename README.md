@@ -49,3 +49,47 @@ for(var i=0 ; i<rows ; i++){
         var date = i*7+k-firstDay+1;    //日期算法
         
         //日期数=到日期前一个的总格数-填满第一行的格数+1
+
+“聊天机器人”笔记：
+
+1、$("#cheat").keyup(function(){
+
+    if(event.keyCode == 13){
+
+    $("#button").click();
+
+}
+
+});
+
+/*当按钮被松开时，发生 keyup 事件。
+
+语法：$(selector).keyup()*/
+
+/*(event.keyCode == 13)：键码13为回车
+
+irFirefox2.0中不支持 window.event.keyCode,
+
+但是我们可以用event.which代替。
+
+但是为了使其能更具有普遍的兼容性，最好用event.keyCode|| event.which.*/
+
+2、$("#list").scrollTop($("#list")[0].scrollHeight);
+
+/*scrollTop() 方法返回或设置匹配元素的滚动条的垂直位置。
+
+scroll top offset 指的是滚动条相对于其顶部的偏移。
+
+如果该方法未设置参数，则返回以像素计的相对滚动条顶部的偏移。
+
+语法：$(selector).scrollTop(offset)
+
+参数	描述
+
+offset	可选。规定相对滚动条顶部的偏移，以像素计。*/
+
+/*scrollHeight: 获取对象的滚动高度。
+
+scrollWidth:获取对象的滚动宽度。
+
+一定要写$("#list")[0].scrollHeight;而不是$("#list").scrollHeight;*/
