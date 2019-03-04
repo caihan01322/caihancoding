@@ -84,7 +84,7 @@ scroll top offset 指的是滚动条相对于其顶部的偏移。
 
 语法：$(selector).scrollTop(offset)
 
-参数	描述
+参数	  描述
 
 offset	可选。规定相对滚动条顶部的偏移，以像素计。*/
 
@@ -93,3 +93,39 @@ offset	可选。规定相对滚动条顶部的偏移，以像素计。*/
 scrollWidth:获取对象的滚动宽度。
 
 一定要写$("#list")[0].scrollHeight;而不是$("#list").scrollHeight;*/
+
+3、$(document).ready(function(){
+
+$('#dateTable tr').each(function(i){
+
+    $(this).children('td').each(function(j){
+    
+    var dateStr1 = (new Date(currentYear,currentMonth,(i*7+j-firstDay+1))).toISOString();
+    
+    var tdMemo1 = localStorage.getItem(dateStr1);
+    
+    if(tdMemo1!=null) $(this).css("text-decoration","underline");})
+    
+})
+
+});
+
+each() 方法规定为每个匹配元素规定运行的函数。
+
+语法：$(selector).each(function(index,element))
+
+参数：function(index,element)	
+
+描述：必需。为每个匹配元素规定运行的函数。
+
+（ index - 选择器的 index 位置
+
+element - 当前的元素（也可使用 "this" 选择器））
+
+Eg. $('div').each(function (i){
+
+  //i就是索引值
+  
+  //this 表示获取遍历每一个dom对象
+  
+});
