@@ -7,13 +7,10 @@ using namespace std;
 class Enrol{
 	public:
 		void setName(){
-			ofstream f("D:\\usersInformation.txt",ios::app);
 			cin >> m_sName;
-			f << m_sName << " ";
 		}
 		
 		void setAccount(){
-			ofstream fIn("D:\\usersInformation.txt",ios::app);
 			ifstream fOut("D:\\usersInformation.txt");
 			string name,account,password;
 			bool flagMatch = false;
@@ -31,7 +28,6 @@ class Enrol{
 				cout << endl << "Account :";
 				setAccount();
 			}
-			else fIn << m_sAccount << " ";
 				 
 		}
 		
@@ -73,7 +69,7 @@ class Enrol{
 				//判断第二次密码输入是否正确 
 				if(m_sPassword == matchPassword){
 					cout << endl << "Successful registration!" << endl;
-					f << m_sPassword << endl;
+					f << m_sName << " " << m_sAccount << " " << m_sPassword << endl;
 				}
 				else{
 					cout << endl << "The second password input is incorrect!" << endl;
