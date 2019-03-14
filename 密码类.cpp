@@ -25,7 +25,7 @@ public:
 			pwd = _s;
 	}	
     friend ostream& operator<<(ostream& stream,Password s){
-	  stream << "(" << s.pwd << ")" <<endl;
+	  stream << "(" << s.pwd << ")";
  	  return stream;  	
 	}
 	bool operator==(const Password& s){
