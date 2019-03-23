@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="todo list.css">
+  <title>Todo list</title>
+</head>
+<body>
+  <h1 style="font-size:  3em">todo list</h1>
+  <div><span id="time"></span>&nbsp;<button id="clear" onclick="Clear()">重置</button></div><br>
+  使用说明：(<a id="instruction" href="javascript:instruction()">点击查看</a>)
+  <h1>需要做的</h1>
+  <input id="need_to_do" maxlength="13" type="text" placeholder="添加" />
+  <button id="needButton">添加</button>
+  <ul id="need list"></ul>
+  <br />
+  <h1>想要做的</h1>
+  <input id="want_to_do" maxlength="13" type="text" placeholder="添加"  />
+  <button id="wantButton">添加</button>
+  <ul id="want list"></ul>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  <script type="text/javascript" src="todo list.js"></script>
+  <br /><br /><br />
+  <footer>
+    Copyright &copy; 221801322. All Rights Reserved.
+  </footer> 
+</body>
+</html>
