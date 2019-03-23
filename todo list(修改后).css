@@ -2,7 +2,4 @@ body{background:#CDCDCD;font-size: 1.1em}
 #instruction {text-decoration: none;}
 #need_to_do,#want_to_do,.editor {width: 245px;height: 20px;font-size: 19px;}
 .close {padding: 6px 8px 6px 8px;text-decoration: none;color: black;}
-/*Padding (填充)属性定义元素边框与元素内容之间的空间。*/
 .close:hover {color: red;}
-/*margin(外边距)与padding(内边距)如何进行区分，这是很多学html人的困扰，其实说白了
-padding就是内容与边框的空隙。而margin则是模块与模块的空隙。*/
