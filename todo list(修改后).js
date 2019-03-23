@@ -23,6 +23,13 @@ function Clear() {
   location.reload();
 }
 
+swal({
+  title: "OK!",    
+  text: "Nice to meet you!",
+  type: "success",    
+  confirmButtonText: "Continue" 
+})//调用swal函数
+
 $(document).ready(function(){
   $("#need_to_do").keyup(function(){
       if(event.keyCode == 13){
@@ -44,7 +51,7 @@ $(document).ready(function(){
   input.setAttribute("type","checkbox");
 
   if (need == '')
-    alert("内容不能为空!");
+    swal("内容不能为空!");
   else
     document.getElementById("need list").appendChild(li);
   document.getElementById("need_to_do").value = "";
@@ -86,7 +93,7 @@ $(document).ready(function(){
   input.setAttribute("type","checkbox");
   
   if (want == '')
-    alert("内容不能为空!"); 
+    swal("内容不能为空!"); 
   else
     document.getElementById("want list").appendChild(li);
   document.getElementById("want_to_do").value = "";
@@ -109,7 +116,7 @@ $(document).ready(function(){
 
 //
 function instruction(){
-  alert("使用说明：1.可先完成一件最需要做的，\n再完成一件最想要做的，循环往复；\n2.双击文本进行修改；\n3.每件事项限制13字。");
+  swal("使用说明：1.可先完成一件最需要做的，\n再完成一件最想要做的，循环往复；\n2.双击文本进行修改；\n3.每件事项限制13字。");
 }
 
 //实现删除功能
