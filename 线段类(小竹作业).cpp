@@ -88,9 +88,9 @@ int main(void){
 	cin >> b_y2;
 	Line b(b_x1,b_y1,b_x2,b_y2);
 	
-	cout << endl << "set line_a color:";
+	cout << endl << "set line_a color(input type:int):";
 	cin >> a_color;
-	cout << "set line_b color:";
+	cout << "set line_b color(input type:int):";
 	cin >> b_color;
 	cout << "set line_a width:";
 	cin >> a_width;
