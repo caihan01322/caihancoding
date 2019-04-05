@@ -42,13 +42,13 @@ class Menu	//用户界面层
 		void namePrompt();			//提示输入用户名 
 		void accountPrompt();		//提示输入账号 
 		void passwordPrompt();		//提示输入密码
-		void accountExistedPrompt();
-		void reconfirmPasswordPrompt();
-		void registerSuccessPrompt();
-		void secPasswordUnmatchPrompt();
-		void resetPasswordPrompt();
-		void welcomePrompt();
-		void matchInfoErrorPrompt();
+		void accountExistedPrompt();		//提示账号已存在 
+		void reconfirmPasswordPrompt();		//提示进行密码确认 
+		void registerSuccessPrompt();		//提示注册成功 
+		void secPasswordUnmatchPrompt();	//提示确认密码失败 
+		void resetPasswordPrompt();			//提示重新设置密码 
+		void welcomePrompt();				//提示欢迎用户 
+		void matchInfoErrorPrompt();		//提示输入信息不正确 
 };
 
 class User	//业务逻辑层 
@@ -108,37 +108,40 @@ void Menu::passwordPrompt()		//提示输入密码
 	cout << endl << "Password :";
 }
 
-void Menu::accountExistedPrompt()
+void Menu::accountExistedPrompt()		//提示账号已存在
 {
 	cout << endl << "Account has existed." << endl;
 }
  
-void Menu::reconfirmPasswordPrompt()
+void Menu::reconfirmPasswordPrompt()	//提示进行密码确认
 {
 	cout << "Please reconfirm your password:";
 }
  
-void Menu::registerSuccessPrompt()
+void Menu::registerSuccessPrompt()		//提示注册成功
 {
 	cout << endl << "Successful registration!" << endl;	
 }
 
-void Menu::secPasswordUnmatchPrompt(){
+void Menu::secPasswordUnmatchPrompt()	//提示确认密码失败 
+{
 	cout << endl << "The second password input is incorrect!" << endl;	
 }
 
-void Menu::resetPasswordPrompt()
+void Menu::resetPasswordPrompt()		//提示重新设置密码 
 {
 	cout << endl << "Your password is less than 6 bits in length, " << endl;
 	cout << "or does not containletters and numbers at least." << endl;
 	cout << "Please reset it!" << endl;
 }
 
-void Menu::welcomePrompt(){
+void Menu::welcomePrompt()				//提示欢迎用户
+{
 	cout << endl << "欢迎您，";
 }
 
-void Menu::matchInfoErrorPrompt(){
+void Menu::matchInfoErrorPrompt()		//提示输入信息不正确 
+{
 	cout << endl << "Account does not exist or password error." << endl;
 }
  
