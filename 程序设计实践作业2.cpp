@@ -12,10 +12,12 @@ class Create	//文章生成类
 public:
 	Create();	//文章内容存入文件 
 	~Create();	//清除文件的文章内容 
-	void setStartVerb();	//设置启动词 
+	void setStartVerb();	//设置启动词
+	void setWordNum();		//设置文章字数
 	void createArtcle();	//生成一篇新的文章
 	void showArticle();		//显示生成的文章 
 private:
+	int m_iWordNum;			//文章字数
 	string m_strStartVerb;	//启动词
 	string m_strArticle;	//新文章
 };
@@ -36,7 +38,7 @@ Create::Create()	//文章内容存入文件
 	f << "春天好美丽喔！花红，草绿，大树也发芽了。我听到孩子们的笑声，我感觉到天空春雨绵绵，我听到小鸟啾啾的唱着歌，我看到圆滚滚温暖的太阳，我听到微风的呼唤声。";
 	f << "春天帅哥飞来了！春天帅哥飞来了！花朵小姐打扮得浓妆艳抹。哇！大家都惊叹不已！大树爷爷穿上春天帅哥送的新衣裳，快乐得哈哈大笑。小鸟和流水，高兴得一边唱歌一边伴奏。春天在哪儿？春天在哪儿？嫩芽忙着探出头来，在春风中玩着捉迷藏。大家都兴高采烈，欢迎春天帅哥的飞来。";
 	f << "春天来了！小花抬起头来，享受着温暖的阳光，小草换上绿衣裳，好开心。小鸟唱着悦耳的歌，让我们心情好愉快。孩子们在草原上奔跑、游戏。春天，春天在哪儿？原来，春天在美丽的大自然里，春天在孩子们的笑声中。春天在芬芳的花香里，花香透露了春天清爽的气息，美丽的花儿，在春天绽放。"; 
-	f << "春天在哪儿？春天在碧绿的草原里，小草欣欣向荣，株株绿得可爱。春天在哪儿？春天在蝴蝶艳丽的翅膀里。";
+	f << "春天在哪儿？春天在碧绿的草原里，小草欣欣向荣，株株绿得可爱。春天在哪儿？春天在蝴蝶艳丽的翅膀里，七彩的蝴蝶，赶走了冬天的冷酷，突显了春天的丰富。";
 	//文章C存入文件
 	f << "春天来了，万物都苏醒了。春天迈着轻盈的脚步，悄然无息地来了。";
 	f << "看，她来到了池塘边，一棵棵柳树长了出来，它们摇摆着细嫩的腰肢，在阳光下翩翩起舞。看，她来到了花园里，一朵朵花儿长了出来，它们争奇斗艳、竞相开放。看，她来到了树林旁，一棵棵大树长了出来，它们挺拔高大、粗壮结实。看，她来到了大山上，路边的小草、山上的树木、田里的禾苗都长得绿油油的，就像给大地穿了一件绿色的外衣。"; 
@@ -53,6 +55,11 @@ void Create::setStartVerb()		//设置启动词
 	cout << "请输入启动词（默认为\"春天\"）：";
 	cin >> m_strStartVerb;
 }
+void Create::setWordNum()		//设置文章字数
+{
+	cout << endl << "请输入所要生成的文章字数：";
+	cin >> m_iWordNum;
+} 
 void Create::createArtcle()		//生成一篇新的文章
 {
 	//统计文章字符数（不含'\0'） 
@@ -62,7 +69,7 @@ void Create::createArtcle()		//生成一篇新的文章
 	int len = s.length();
 	f.close();
 	
-	//把 “汉字或标点符号 ”独立来 
+	//把 “汉字或标点符号 ”独立出来 
 	FILE *fp = fopen("D:\\article.txt","r");
 	char cha[len/2*3];
 	int cout = 0;
@@ -102,7 +109,7 @@ void Create::createArtcle()		//生成一篇新的文章
 			n++;
 		}
 	}
-	srand(int(time(0)));
+	//srand(int(time(0)));
 	int x = (rand()%mapPrefix.size());
 	map<int,int>::iterator it;
 	it = mapPrefix.find(x);
@@ -112,7 +119,7 @@ void Create::createArtcle()		//生成一篇新的文章
 	
 	//利用启动词生成新文章 
 	int k=0;
-	while(k<148){
+	while(k<m_iWordNum-2){
 		int n = 0;
 		for(int i = 0;i < len/2-1;i++){
 			if(prefixVerb == verb[i]){
@@ -120,7 +127,7 @@ void Create::createArtcle()		//生成一篇新的文章
 				n++;
 			}
 		}
-		srand(int(time(0)));
+		//srand(int(time(0)));
 		int x = (rand()%mapPrefix.size());
 		map<int,int>::iterator it;
 		it = mapPrefix.find(x);
@@ -138,12 +145,13 @@ void Create::createArtcle()		//生成一篇新的文章
 }
 void Create::showArticle()		//显示生成的文章
 {
-	cout << endl << "生成的文章（150字）：" << endl;
-	cout << m_strArticle; 
+	cout << endl << "生成的文章：" << endl;
+	cout << endl << m_strArticle; 
 }
 int main(void) {
 	Create create;
 	create.setStartVerb();		//设置启动词
+	create.setWordNum();		//设置文章字数 
 	create.createArtcle();		//生成一篇新的文章
 	create.showArticle();		//显示生成的文章
 	return 0;
