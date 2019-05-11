@@ -358,10 +358,10 @@ bool Person::judgeLegal(string idCardNumber){
 	if(!f.good()){
         cout << "\a存放行政区划的文件不存在！" << endl;
         exit(-1);
-    }
-    int adminDivCode;
+    	}
+    	int adminDivCode;
 	string oppositeArea;
-    bool isMatch = false;
+    	bool isMatch = false;
 	while(f >> adminDivCode >> oppositeArea){
 		if(adminDivCode == atoi(idCardNumber.substr(0,6).c_str())){ 
 			isMatch = true;
@@ -369,6 +369,7 @@ bool Person::judgeLegal(string idCardNumber){
 		}	
 	}
 	if(!isMatch) return false;
+	f.close();
 
 	if(dates.getYear() 	!= atoi(idCardNumber.substr(6,4).c_str()))	return false;
 	if(dates.getMonth()	!= atoi(idCardNumber.substr(10,2).c_str())) return false;
