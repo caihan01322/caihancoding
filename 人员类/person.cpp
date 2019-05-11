@@ -1,5 +1,5 @@
 #include "person.h"
-#include "nation.h"
+#include "nations.h"
 #include "dates.h"
 
 void Person::setTheName(){
@@ -46,25 +46,17 @@ void Person::setBirthDate(){
     system("cls"); //清屏
 }
 void Person::setRace(){
-	cin.get(); 
+	cin.get();
 	
-	struct Nation nation[MAX_NATION_NUM];
-    
-    //将存放民族代码、名称对照表的文件读入数组nation中
-    //n=民族代码、名称对照表的记录条数
-    int n=getNationTable(nation);
-    
-    //用户输入(选择)民族(代码)
-    //index=用户输入的民族代码在民族表中对应的下标
-    int index=getIndexOfChoice(nation,n);
-    
-    printf("你刚输入的民族是：[%02d]",nation[index].code);
-    printf("%s\n",nation[index].name);
-    
-    race = nation[index].name;
-    cout << "\n请按任意键继续...";
+	Nations nations;
+	nations.getNationTable();
+	nations.showNationTable();
+	cout << endl << "请输入民族代码和<回车>：" << endl; 
+    	race = nations.getNation();
+	
+    	cout << "\n请按任意键继续...";
 	getch(); 
-    system("cls"); //清屏
+ 	system("cls"); //清屏
 }
 void Person::setIdCardNumber(){
 	cout << "请输入公民身份证件编号：";
