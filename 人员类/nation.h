@@ -11,7 +11,7 @@
 //默认民族代码01（汉族）
 #define DEFAULT_CODE 01
 //存放民族代码、名称对照表的文件
-#define FNAME "nationCodeName.txt"
+#define FNAME "NationCodeName.txt"
 
 //存放民族代码和民族名称
 struct Nation {
