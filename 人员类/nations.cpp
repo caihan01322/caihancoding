@@ -15,7 +15,10 @@ void Nations::getNationTable(){
 }
 void Nations::showNationTable(){
 	for (int i=0;i<MAX_NATION_NUM;i++){
-		cout << "[" << code[i] << "]" << " " << name[i] << " ";
+		if(code[i]<10) 
+			cout << "[0" << code[i] << "]" << left << setw(10) << name[i];
+		else 
+			cout << "[" << code[i] << "]" << " " << name[i] << " ";
 		if(i%8 == 0 && i!=0) cout << endl; 
 	}
 }
