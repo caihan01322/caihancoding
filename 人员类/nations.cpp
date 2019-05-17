@@ -18,8 +18,9 @@ void Nations::showNationTable(){
 		if(code[i]<10) 
 			cout << "[0" << code[i] << "]" << left << setw(10) << name[i];
 		else 
-			cout << "[" << code[i] << "]" << " " << name[i] << " ";
-		if(i%8 == 0 && i!=0) cout << endl; 
+			cout << "["  << code[i] << "]" << left << setw(10) << name[i];
+		if((i+1)%8 == 0 && i!=0) 
+			cout << endl; 
 	}
 }
 string Nations::getNation(){
