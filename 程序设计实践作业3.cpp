@@ -146,6 +146,7 @@ void Blackjack::getPok()			//继续要牌
 		//如果玩家拿到的前两张牌是一张A和一张10点牌，就拥有黑杰克(Blackjack);此时，如果庄家没有黑杰克，玩家就能赢得2倍的分数(1赔2)
 		if ( ((pokName[playerPok[0]] == "A" && pokName[playerPok[1]] == "10")||(pokName[playerPok[0]] == "10" && pokName[playerPok[1]] == "A")) && 
 		(!((pokName[computerPok[0]] == "A" && pokName[computerPok[1]] == "10")||(pokName[computerPok[0]] == "10" && pokName[computerPok[1]] == "A"))) ){
+			cout << "庄家的暗牌为：" << pokName[computerPok[1]] << endl;
 			money = money + bet * 2;
 			aGameOver = true;
 			outcome = true;
