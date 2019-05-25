@@ -331,7 +331,7 @@ int main(void){
 		cout << "欢迎玩黑杰克(21点)游戏！" << endl;
 		blackjack.inputBet();	//输入所下赌注
 		
-		bool flag = true;
+		bool flag = false;
 		int initMoney = blackjack.getMoney();
 		
 		blackjack.getPok();
