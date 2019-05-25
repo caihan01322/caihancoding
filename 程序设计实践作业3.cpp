@@ -115,7 +115,7 @@ void Blackjack::inputBet()			//输入所下赌注
 		cout << endl << "已下" << defBet << "元赌注,新一局开始。" << endl;
 	}
 	if(select == "N" || select == "n"){
-		cout << endl << "你现在有" << money << "元,请输入所下赌注(整数)：" << endl;
+		cout << endl << "你现在有" << money << "元,请输入所下赌注(整数)：";
 		sBet = setStr();
 		iBet = atoi(sBet.substr(0,sBet.length()).c_str());
 		while(!judge(sBet) || iBet == 0 || iBet > money){
@@ -124,7 +124,7 @@ void Blackjack::inputBet()			//输入所下赌注
 			iBet = atoi(sBet.substr(0,sBet.length()).c_str());
 		}
 		bet = iBet;
-		cout << endl << "已下" << bet << "元赌注,新一局开始。";
+		cout << endl << "已下" << bet << "元赌注,新一局开始。" << endl;
 	}
 }
 void Blackjack::getPok()			//继续要牌
