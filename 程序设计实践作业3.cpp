@@ -209,8 +209,8 @@ void Blackjack::getPok()			//继续要牌
 				else{
 					while(numOfA > 0){
 						computerPokSum = computerPokSum - 9;
+						numOfA--;
 						if(computerPokSum <= 21) break;
-						else numOfA--;
 					}
 				}
 			}
@@ -228,8 +228,8 @@ void Blackjack::getPok()			//继续要牌
 		if(playerSum > 21){
 			while(n > 0){
 				playerSum = playerSum - 9;
+				n--;
 				if(playerSum <= 21) break;
-				else n--;
 			}
 		}
 	}
