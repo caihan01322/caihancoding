@@ -43,9 +43,9 @@ class Blackjack{
 		void getPok();		//继续要牌
 		void endGetPok();	//停止要牌
 		void init();		//初始化牌数等
-		int getMoney();		//查询余额
-		bool getAGameOver();//返回一局是否结束
-		bool getOutcome();	//返回胜负结果
+		int getMoney() const;		//查询余额
+		bool getAGameOver() const;	//返回一局是否结束
+		bool getOutcome() const;	//返回胜负结果
 };
 bool Blackjack::judge(string bet)	//判断输入金额是否为数字 
 {
@@ -312,15 +312,15 @@ void Blackjack::init()				//初始化牌数等
 	aGameOver = false;		//初始化为游戏未结束
 	outcome = false;		//初始化胜负结果
 }
-int Blackjack::getMoney()			//查询余额
+int Blackjack::getMoney() const			//查询余额
 {
 	return money;
 }
-bool Blackjack::getAGameOver()		//一局是否结束
+bool Blackjack::getAGameOver() const		//一局是否结束
 {
 	return aGameOver;
 }
-bool Blackjack::getOutcome()		//返回胜负结果
+bool Blackjack::getOutcome() const		//返回胜负结果
 {
 	return outcome;
 }
