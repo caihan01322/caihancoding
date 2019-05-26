@@ -21,21 +21,23 @@ class Blackjack{
 	private:
 		int pok[53];     	//扑克牌
  		int pokValue[53]; 	//扑克值
-		string pokName[53]; //扑克名
+		string pokName[53]; 	//扑克名
  
 		int money;	//玩家金额 
 		int bet;	//玩家赌注 
 		int defBet;	//默认赌注
 		
 		int computerPok[10];	//庄家手牌
-		int playerPok[10];		//玩家手牌
-		int computerPokNum;		//庄家牌数
-		int playerPokNum;		//玩家牌数
-		int computerPokSum;		//庄家总点数
-		int playerPokSum;		//玩家总点数
+		int playerPok[10];	//玩家手牌
+		int computerPokNum;	//庄家牌数
+		int playerPokNum;	//玩家牌数
+		int computerPokSum;	//庄家总点数
+		int playerPokSum;	//玩家总点数
+	
+		int numOfA;		//牌A数
 		
-		bool aGameOver;				//一局是否结束
-		bool outcome;				//胜负结果
+		bool aGameOver;			//一局是否结束
+		bool outcome;			//胜负结果
 		bool judge(string bet);		//判断输入金额是否为数字
 	public:
 		Blackjack();		//初始化扑克等 
@@ -92,6 +94,8 @@ Blackjack::Blackjack()				//初始化扑克等
 	
 	computerPokSum = 0;		//庄家初始总点数
 	playerPokSum = 0;		//玩家初始总点数
+	
+	numOfA = 0;			//初始化牌A数
 	
 	aGameOver = false;		//初始化为游戏未结束
 	outcome = false;		//初始化胜负结果
@@ -200,23 +204,6 @@ void Blackjack::getPok()			//继续要牌
 	else{	
 		playerPok[playerPokNum] = rand() % 52 + 1;
 		playerPokNum++;
-		if(computerPokSum <= 17){
-			computerPok[computerPokNum] = rand() % 52 + 1;
-			if(pokName[computerPok[computerPokNum]] == "A") 
-				computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 9;
-			else computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
-			if(computerPokSum > 21){
-				if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 9;
-				else{
-					while(numOfA > 0){
-						computerPokSum = computerPokSum - 9;
-						numOfA--;
-						if(computerPokSum <= 21) break;
-					}
-				}
-			}
-			computerPokNum++;
-		}
 	}
 	
 	int playerSum = 0,n = 0;
@@ -264,8 +251,16 @@ void Blackjack::endGetPok()			//停止要牌
 		if(pokName[computerPok[computerPokNum]] == "A") 
 			computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 9;
 		else computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
-		if(computerPokSum > 21)
+		if(computerPokSum > 21){
 			if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 9;
+			else{
+				while(numOfA > 0){
+					computerPokSum = computerPokSum - 9;
+					numOfA--;
+					if(computerPokSum <= 21) break;
+				}
+			}
+		}
 		computerPokNum++;
 	}
 	
@@ -313,6 +308,8 @@ void Blackjack::init()				//初始化牌数等
 	
 	computerPokSum = 0;		//庄家初始总点数
 	playerPokSum = 0;		//玩家初始总点数
+	
+	numOfA = 0;			//初始化牌A数
 	
 	aGameOver = false;		//初始化为游戏未结束
 	outcome = false;		//初始化胜负结果
