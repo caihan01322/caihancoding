@@ -43,8 +43,8 @@ class Blackjack{
 		Blackjack();		//初始化扑克等 
 		void inputBet();	//输入所下赌注
 		void getPok();		//继续要牌
-		void endGetPok();	//停止要牌
-		void init();		//初始化牌数等
+		void endGetPok(int initMoney);	//停止要牌
+		void init();			//初始化牌数等
 		int getMoney() const;		//查询余额
 		bool getAGameOver() const;	//返回一局是否结束
 		bool getOutcome() const;	//返回胜负结果
@@ -242,7 +242,7 @@ void Blackjack::getPok()			//继续要牌
 		}
 	}
 }
-void Blackjack::endGetPok()			//停止要牌
+void Blackjack::endGetPok(int initMoney)	//停止要牌
 {
 	srand((unsigned int)(time(NULL)));
 	
@@ -297,7 +297,8 @@ void Blackjack::endGetPok()			//停止要牌
 	}
 	else{
 		cout << endl << "玩家点数(" << playerPokSum << ")等于庄家点数(" << computerPokSum << ")" << "本局平局！" << endl;
-		outcome = true;
+		if(money - initMoney >= 0) outcome = true;
+		else outcome = true;
 	}
 	aGameOver = true;
 }
@@ -351,7 +352,7 @@ int main(void){
 					else flag = true;					
 					break;
 				case 2:
-					blackjack.endGetPok();
+					blackjack.endGetPok(initMoney);
 					flag = false;
 					break;
 				default:
