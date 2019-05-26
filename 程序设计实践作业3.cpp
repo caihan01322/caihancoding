@@ -261,7 +261,11 @@ void Blackjack::endGetPok()			//停止要牌
 	
 	while(computerPokSum <= 17){
 		computerPok[computerPokNum] = rand() % 52 + 1;
-		computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
+		if(pokName[computerPok[computerPokNum]] == "A") 
+			computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 9;
+		else computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
+		if(computerPokSum > 21)
+			if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 9;
 		computerPokNum++;
 	}
 	
