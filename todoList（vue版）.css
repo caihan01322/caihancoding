@@ -1,0 +1,25 @@
+[v-cloak] {
+    display: none;
+}
+html {
+    overflow-y: scroll;
+}
+body {
+    background:#CDCDCD;
+    font-size: 1.1em;
+}
+#instruction {
+    text-decoration: none;
+}
+#need_to_do , #want_to_do , .editor {
+    
+    font-size: 19px;
+}
+a {
+    padding: 6px 8px 6px 8px;
+    text-decoration: none;
+    color: blue;
+}
+a:hover {
+    color: red;
+}
