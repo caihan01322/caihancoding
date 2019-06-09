@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="todoList.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1 style="font-size: 3em">todo list</h1>
+        <div>
+            <span id="time"></span>&nbsp;&nbsp;<button id="clear" @click="Clear()">重置</button>
+        </div>
+
+        <br />
+    
+        使用说明：(<a href="javascript:void(0);" @click="instruction">点击查看</a>)
+
+        <h1>需要做的</h1>
+        <input id="need_to_do" maxlength="13" placeholder="添加" v-model="needValue" @keyup.13="addNeed()" />
+        <button @click="addNeed()">添加</button>
+        
+        <template v-if="needItems.length">
+            <br /><br />
+
+            <button @click="checkAllNeed">全选</button>
+            <button @click="unCheckAllNeed">全不选</button>
+            <button @click="deleteAllNeed">删除全部</button>
+
+            <ul id="need_list" v-for="(needItem,index) in needItems">
+                <li>
+                    <input class="editor" type="checkbox" v-model="needItem.checked"  />
+                    <label ondblclick="edit(this)">{{ needItem.needContent }}</label> 
+                    <a href="javascript:void(0);" @click="deleteNeedItem(index)">x</a> 
+                </li>
+            </ul>
+            
+        </template>
+
+        <br /><br /><br />
+
+        <h1>想要做的</h1>
+        <input id="want_to_do" maxlength="13" placeholder="添加" v-model="wantValue" @keyup.13="addWant()" />
+        <button @click="addWant()">添加</button>
+
+        <template v-if="wantItems.length">
+            <br /><br />
+
+            <button @click="checkAllWant">全选</button>
+            <button @click="unCheckAllWant">全不选</button>
+            <button @click="deleteAllWant">删除全部</button>
+
+            <ul id="want_list" v-for="(wantItem,index) in wantItems">
+                <li>
+                    <input class="editor" type="checkbox" v-model="wantItem.checked" />
+                    <label ondblclick="edit(this)">{{ wantItem.wantContent }}</label> 
+                    <a href="javascript:void(0);" @click="deleteWantItem(index)">x</a>
+                </li>
+            </ul>
+            
+        </template>
+
+        <br /><br /><br /><br />
+
+        <footer>
+            Copyright &copy; 221801322.&nbsp;&nbsp;All Rights Reserved.
+        </footer> 
+    </div>
+    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css"/>
+    <script type="text/javascript" src="todoList.js"></script>
+</body>
+</html>
