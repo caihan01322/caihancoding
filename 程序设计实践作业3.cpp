@@ -1,6 +1,6 @@
 /******************************************************************************************************************
 * Copyright (C) 2019-2019 All Rights Reserved.
-* @file       : new.cpp
+* @file       : 程序设计实践作业3.cpp
 * @brief      : 实现较为简单的21点(黑杰克)游戏
 * @autor      : 蔡晗(221801322)
 * @emil:      : 2249618917@qq.com
@@ -20,7 +20,7 @@
 
 //2019.05.25 21:10
 //将初始flag由true改为false
-//解决了玩家爆掉后仍能无限要牌的bug
+//解决了玩家爆掉后游戏不能结束的bug
 
 //2019.05.25 21:55
 //将类中get类型的函数修改为const常成员函数
@@ -44,8 +44,6 @@
 
 //2019.05.26 23:40
 //解决了庄家抽到形如“4 2 A 9”(“A”牌出现在第3张及之后)会爆掉的bug
-
-//2019.6 仍存在未知的bug
 ******************************************************************************************************************/
 
 #include <iostream>
@@ -250,6 +248,11 @@ void Blackjack::getPok()			//继续要牌
 			}
 			else computerPokSum = computerPokSum + pokValue[computerPok[i]];
 		}
+		if(computerPokSum == 22)	//如果庄家有2张A，则算作12点
+		{
+			computerPokSum = computerPokSum - 10;
+			numOfA--;
+		}
 	}
 	else{	
 		playerPok[playerPokNum] = rand() % 52 + 1;
@@ -301,11 +304,13 @@ void Blackjack::endGetPok(int initMoney)	//停止要牌
 		if(pokName[computerPok[computerPokNum]] == "A"){
 			computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 10;
 			numOfA++;
-		}
-			
+		}	
 		else computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
 		if(computerPokSum > 21){
-			if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 10;
+			if(pokName[computerPok[computerPokNum]] == "A"){
+				computerPokSum = computerPokSum - 10;
+				numOfA--;
+			}
 			else{
 				while(numOfA > 0){
 					computerPokSum = computerPokSum - 10;
