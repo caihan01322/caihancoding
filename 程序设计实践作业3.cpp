@@ -42,8 +42,10 @@
 //将庄家停止抽牌的点数由17以上改成16以上
 //尽可能让庄家减少爆掉次数
 
-//2019 05.26 23:40
+//2019.05.26 23:40
 //解决了庄家抽到形如“4 2 A 9”(“A”牌出现在第3张及之后)会爆掉的bug
+
+//2019.6 仍存在未知的bug
 ******************************************************************************************************************/
 
 #include <iostream>
@@ -243,7 +245,7 @@ void Blackjack::getPok()			//继续要牌
 		}
 		for(int i=0;i<computerPokNum;i++){
 			if(pokName[computerPok[i]] == "A"){
-				computerPokSum = computerPokSum + pokValue[computerPok[i]] + 9;
+				computerPokSum = computerPokSum + pokValue[computerPok[i]] + 10;
 				numOfA++;
 			}
 			else computerPokSum = computerPokSum + pokValue[computerPok[i]];
@@ -257,13 +259,13 @@ void Blackjack::getPok()			//继续要牌
 	int playerSum = 0,n = 0;
 	for(int i=0;i<playerPokNum;i++){
 		if(pokName[playerPok[i]] == "A"){
-			playerSum = playerSum + pokValue[playerPok[i]] + 9;
+			playerSum = playerSum + pokValue[playerPok[i]] + 10;
 			n++;
 		}
 		else playerSum = playerSum + pokValue[playerPok[i]];
 		if(playerSum > 21){
 			while(n > 0){
-				playerSum = playerSum - 9;
+				playerSum = playerSum - 10;
 				n--;
 				if(playerSum <= 21) break;
 			}
@@ -297,16 +299,16 @@ void Blackjack::endGetPok(int initMoney)	//停止要牌
 	while(computerPokSum <= 16){
 		computerPok[computerPokNum] = rand() % 52 + 1;
 		if(pokName[computerPok[computerPokNum]] == "A"){
-			computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 9;
+			computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]] + 10;
 			numOfA++;
 		}
 			
 		else computerPokSum = computerPokSum + pokValue[computerPok[computerPokNum]];
 		if(computerPokSum > 21){
-			if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 9;
+			if(pokName[computerPok[computerPokNum]] == "A") computerPokSum = computerPokSum - 10;
 			else{
 				while(numOfA > 0){
-					computerPokSum = computerPokSum - 9;
+					computerPokSum = computerPokSum - 10;
 					numOfA--;
 					if(computerPokSum <= 21) break;
 				}
